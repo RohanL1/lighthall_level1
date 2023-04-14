@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click Counter</title>
+</head>
+<body>
+	<h1>LightHall level 1</h1>
+
+	<h2>Click below to increase count</h2>
+	<p>Count: {{ count }}</p>
+	<form method="post">
+		{% csrf_token %}
+		<button type="submit">Increase Count</button>
+	</form>
+	<table>
+		<thead>
+			<tr>
+				<th>Country Name</th>
+				<th>Count</th>
+			</tr>
+		</thead>
+		<tbody>
+            {% for name, cnt in data.items %}
+			<tr>
+				<td>{{ name }}</td>
+				<td>{{ cnt }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</body>
+</html>
