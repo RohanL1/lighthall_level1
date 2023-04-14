@@ -19,11 +19,10 @@ def get_client_ip(request):
 
 def get_country_from_ip(ip_address):
     global http
-    # ip_address='73.170.135.6'
     url = f'https://ipapi.co/{ip_address}/json/'
     resp, content =http.request(url,method="GET")
     data = json.loads(content)
-    name = data['country_name']
+    name = data['country_name']  if 'country_name' in data else 'UNKOWN'
     return name
     
 
